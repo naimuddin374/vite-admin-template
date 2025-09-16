@@ -1,43 +1,23 @@
-import AppRoute from "@components/AppRoute";
-import PrivateLayout from "@components/layout/PrivateLayout";
-import PublicLayout from "@components/layout/public/PublicLayout";
-import { AuthProvider } from "@contexts/AuthContext";
-import Dashboard from "@pages/Dashboard";
-import Login from "@pages/Login";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import AppRoute from "@/app/AppRoute";
+import { AuthProvider } from "@/contexts/AuthContext";
+import { store } from "@/stores/index";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { Provider } from "react-redux";
+import { BrowserRouter } from "react-router-dom";
+
+const queryClient = new QueryClient();
 
 const App = () => {
   return (
-    <AuthProvider>
-      <BrowserRouter>
-        <Routes>
-          {/* Public Routes */}
-          <Route
-            path="/login"
-            element={
-              <AppRoute requireAuth={false}>
-                <PublicLayout>
-                  <Login />
-                </PublicLayout>
-              </AppRoute>
-            }
-          />
-
-          {/* Private Routes */}
-          <Route
-            path="/"
-            element={
-              <AppRoute requireAuth={true}>
-                <PrivateLayout />
-              </AppRoute>
-            }
-          >
-            <Route index element={<Dashboard />} />
-            <Route path="properties" element={<div>Properties</div>} />
-          </Route>
-        </Routes>
-      </BrowserRouter>
-    </AuthProvider>
+    <Provider store={store}>
+      <QueryClientProvider client={queryClient}>
+        <AuthProvider>
+          <BrowserRouter>
+            <AppRoute />
+          </BrowserRouter>
+        </AuthProvider>
+      </QueryClientProvider>
+    </Provider>
   );
 };
 

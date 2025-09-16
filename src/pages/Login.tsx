@@ -1,5 +1,5 @@
+import LoadingSpinner from '@/components/LoadingSpinner';
 import { useAuth } from '@/contexts/AuthContext';
-import LoadingSpinner from '@components/LoadingSpinner';
 import { ErrorMessage, Field, Form, Formik } from 'formik';
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';

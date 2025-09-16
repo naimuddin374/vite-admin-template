@@ -1,6 +1,6 @@
+import { ACCESS_TOKEN_KEY, AUTH_USER_KEY } from '@/consts/index';
+import { clearStorage, getItem, setItem } from '@/services/localStorage';
 import { IAuthUser } from '@/types';
-import { ACCESS_TOKEN_KEY, AUTH_USER_KEY } from '@consts/index';
-import { clearStorage, getItem, setItem } from '@services/localStorage';
 import type { ReactNode } from 'react';
 import { createContext, useContext, useEffect, useState } from 'react';
 

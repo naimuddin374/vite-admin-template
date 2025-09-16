@@ -19,11 +19,11 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"],
-      "@components/*": ["./src/components/*"],
-      "@pages/*": ["./src/pages/*"],
-      "@contexts/*": ["./src/contexts/*"],
+      "@/components/*": ["./src/components/*"],
+      "@/pages/*": ["./src/pages/*"],
+      "@/contexts/*": ["./src/contexts/*"],
       "@utils/*": ["./src/utils/*"],
-      "@types/*": ["./src/types/*"]
+      "@/types/*": ["./src/types/*"]
     },
 
     /* Linting */
